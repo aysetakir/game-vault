@@ -69,4 +69,4 @@ build/
 .DS_Store
 
 # Secrets
-Secrets.xcconfig
+**/Secrets.xcconfig
