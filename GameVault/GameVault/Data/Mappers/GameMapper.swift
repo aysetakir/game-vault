@@ -13,3 +13,12 @@ extension GameDTO {
         )
     }
 }
+
+extension GamePageDTO {
+    func toEntity() -> GamePage {
+        GamePage(
+            games: results.map { $0.toEntity() },
+            hasNextPage: next != nil
+        )
+    }
+}

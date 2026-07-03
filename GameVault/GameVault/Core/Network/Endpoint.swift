@@ -13,4 +13,13 @@ struct Endpoint {
     let queryItems: [URLQueryItem]
 }
 
- 
+extension Endpoint {
+    static func games(page: Int) -> Endpoint {
+        Endpoint(
+            path: "/games",
+            method: .get,
+            queryItems: [URLQueryItem(name: "page", value: String(page))]
+        )
+    }
+}
+
