@@ -23,3 +23,12 @@ extension Endpoint {
     }
 }
 
+extension Endpoint {
+    static func gameDetail(id: Int) -> Endpoint {
+        Endpoint(
+            path: "/games/\(id)",
+            method: .get,
+            queryItems: []
+        )
+    }
+}
