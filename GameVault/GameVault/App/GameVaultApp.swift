@@ -4,7 +4,15 @@ import SwiftUI
 struct GameVaultApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            GameListView(
+                viewModel: GameListViewModel(
+                    repository: GameRepositoryImpl(
+                        apiClient: APIClient(
+                            apiKey: AppConfig.rawgAccessToken
+                        )
+                    )
+                )
+            )
         }
     }
 }
