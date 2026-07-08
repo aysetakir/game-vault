@@ -32,3 +32,24 @@ extension Endpoint {
         )
     }
 }
+
+extension Endpoint {
+    static func searchGames(query: String, page: Int) -> Endpoint {
+        Endpoint(
+            path: "/games",
+            method: .get,
+            queryItems: [
+                URLQueryItem(
+                    name: "search",
+                    value: query
+                ),
+                URLQueryItem(
+                    name: "page",
+                    value: String(
+                        page
+                    )
+                )
+            ]
+        )
+    }
+}

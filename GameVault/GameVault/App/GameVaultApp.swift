@@ -19,12 +19,21 @@ struct GameVaultApp: App {
                 apiClient: APIClient(apiKey: AppConfig.rawgAccessToken)
             )
             let favoritesViewModel = FavoritesGameViewModel(context: container.mainContext)
-            
-            GameListView(
-                viewModel: GameListViewModel(repository: repository),
-                repository: repository, favoritesViewModel: favoritesViewModel,
+            TabView {
+                GameListView(
+                    viewModel: GameListViewModel(repository: repository),
+                    repository: repository, favoritesViewModel: favoritesViewModel,
+                    
+                )
+                .tabItem { Label("Oyunlar", systemImage: "gamecontroller") }
                 
-            )
+                SearchView(
+                    viewModel: SearchViewModel(repository: repository),
+                    repository: repository,
+                    favoritesViewModel: favoritesViewModel
+                )
+                    .tabItem { Label("Ara", systemImage: "magnifyingglass") }
+            }
         }
         .modelContainer(container)
     }

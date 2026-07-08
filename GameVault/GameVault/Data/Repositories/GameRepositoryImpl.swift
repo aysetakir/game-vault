@@ -17,5 +17,11 @@ final class GameRepositoryImpl: GameRepository {
         let dto: GameDetailDTO = try await apiClient.request(endpoint: endpoint)
         return dto.toEntity()
     }
+    
+    func searchGames(query: String, page: Int) async throws -> GamePage {
+        let endpoint = Endpoint.searchGames(query: query, page: page)
+        let dto: GamePageDTO = try await apiClient.request(endpoint: endpoint)
+        return dto.toEntity()
+    }
 }
 
